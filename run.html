@@ -1,0 +1,21 @@
+<div class="header" style="position:relative;padding: 10px;background-color:#C3CDDF;">
+  <h2 style="float:left;">My App</h2>
+  <div style="float:right;">
+    <img src="http://graph.facebook.com/<?php echo $user; ?>/picture"></img> <br/>
+   <fb:name useyou="false" uid="<?php echo $user; ?>"></fb:name>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+<div class="content">
+  <h3> Friends </h3>
+  <ul>
+    <?php foreach ($friends as $key=>$value) { ?>
+    <li>
+      <img src="http://graph.facebook.com/<?php echo $value['id']; ?>/picture"></img>
+      <?php echo $value['name']; ?>
+    </li>
+    <?php } ?>
+  </ul>
+
+</div>
