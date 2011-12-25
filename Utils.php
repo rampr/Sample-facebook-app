@@ -1,6 +1,6 @@
 <?php
 
-function getUser($facebook) {
+function getUser($facebook, $redirect_uri) {
   $user=$facebook->getUser();
   if($user) {
     //$user_profile = $facebook->api('/me');
@@ -8,7 +8,7 @@ function getUser($facebook) {
     return $user;
   }
   else {
-    $params = array("scope" => "email", "redirect_uri" => "http://apps.facebook.com/ram_test_run/");
+    $params = array("scope" => "email", "redirect_uri" => $redirect_uri);
     $loginUrl = $facebook->getLoginUrl($params);
     echo "<script> top.location.href='".$loginUrl."';</script>";
   }
